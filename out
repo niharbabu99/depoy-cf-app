@@ -3,11 +3,12 @@ set -e
 #set -o pipefail
 
 cd "${1}"
-
+dir=`pwd`
+PATH=/usr/local/bin:$PATH
 exec 3>&1
 exec 1>&2
 
-
+echo $dir >&3
 payload=$(mktemp /tmp/resource-in.XXXXXX)
 
 cat > "${payload}" <&0
