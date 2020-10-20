@@ -15,4 +15,10 @@ cat > "${payload}" <&0
 timestamp="$(jq -n "{version:{timestamp:\"$(date +%s)\"}}")"
 text="$(jq -r '.params.text' < "${payload}")"
 
-echo "$timestamp $text" | jq -s add  >&3
+debug_info="$(cat <<EOF
+{
+  "Message": "${text}"
+}
+EOF
+)"
+echo "$timestamp $debug_info" | jq -s add  >&3
