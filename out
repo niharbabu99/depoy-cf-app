@@ -8,7 +8,7 @@ PATH=/usr/local/bin:$PATH
 exec 3>&1
 exec 1>&2
 
-echo $dir >&3
+
 payload=$(mktemp /tmp/resource-in.XXXXXX)
 
 cat > "${payload}" <&0
@@ -18,8 +18,9 @@ text="$(jq -r '.params.text' < "${payload}")"
 debug_info="$(cat <<EOF
 {
   "Message": "${text}"
+  "Directory": "${dir}"
 }
 EOF
 )"
-echo "$timestamp" >&3
-echo "$debug_info" >&3
+
+echo "$timestamp" "$debug_info" | jq -s add  >&3
