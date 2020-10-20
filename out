@@ -7,7 +7,7 @@ dir=`pwd`
 PATH=/usr/local/bin:$PATH
 exec 3>&1
 exec 1>&2
-
+set -ux
 
 payload=$(mktemp /tmp/resource-in.XXXXXX)
 
