@@ -1,0 +1,17 @@
+resource_types:
+- name: cf-deploy
+  type: docker-image
+  source:
+    repository: ndevathi/cf-app-resource-java
+    tag: latest
+
+resources:
+- name: resource-test
+  type: cf-deploy
+
+jobs:
+- name: test-deploy
+  plan:
+   - put: resource-test
+     params:
+       text: "Hello World"
