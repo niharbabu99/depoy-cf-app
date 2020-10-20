@@ -1,1 +1,1 @@
-# resource-type-poc
+# resource-type
