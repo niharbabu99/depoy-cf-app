@@ -1,1 +1,1 @@
-# resource-type
+# deploy-cf-app-resource
