@@ -17,7 +17,7 @@ text="$(jq -r '.params.text' < "${payload}")"
 
 debug_info="$(cat <<EOF
 {
-  "Message": "${text}"
+  "Message": "${text}",
   "Directory": "${dir}"
 }
 EOF
