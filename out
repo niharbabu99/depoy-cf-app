@@ -21,4 +21,5 @@ debug_info="$(cat <<EOF
 }
 EOF
 )"
-echo "$debug_info" | jq -s add  >&3
+echo "$timestamp" >&3
+echo "$debug_info" >&3
